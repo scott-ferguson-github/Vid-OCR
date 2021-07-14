@@ -1,0 +1,25 @@
+# ------------------------------------------------------------------
+# sliceutil.py
+#    Library of routines for slices.  As you know, slices
+#    are instantiated by, for example: slice(a,b,c)
+#    where a,b,c are int or None.  slice(a,b,c) can be
+#    used for list or numpy array indexing by using slice(a,b,c) instead
+#    of a:b:c.
+#
+# ------------------------------------------------------------------
+
+def slicelen(s, asize=None):
+    """
+    slicelen returns the number of values in the slice.
+       s = the slice for which we are calculating the length
+       asize = the assumed array size we are indexing (optional,
+               but it is required if the "stop" for the slice is None
+    """
+    if s.stop is None and asize is None:
+        raise ValueError("slicelen requires an asize if the stop is None")
+    if asize is None:
+        asize = s.stop
+    start, stop, step = s.indices(asize)
+    return (stop - start) // step
+
+def 
