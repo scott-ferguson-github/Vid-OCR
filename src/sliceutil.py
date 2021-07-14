@@ -1,4 +1,6 @@
 # ------------------------------------------------------------------
+# Copyright (C) 2021  Ken Ferguson.  License GPLv2-only.
+#
 # sliceutil.py
 #    Library of routines for slices.  As you know, slices
 #    are instantiated by, for example: slice(a,b,c)
