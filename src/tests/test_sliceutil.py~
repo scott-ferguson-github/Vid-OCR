@@ -1,0 +1,16 @@
+import unittest
+# from ..src import sliceutil
+import sliceutil as su
+
+def slowslicelen(s, asize=None):
+    if asize is None: asize = s.stop
+    return len(range(*s.indices(asize)))
+
+class sliceutilTest(unittest.TestCase):
+    def test_slicelen_case1(self):
+        sl = slice(None, 5)
+        self.assertEqual(su.slicelen(sl), slowslicelen(sl))
+    def test_slicelen_case2(self):
+        sl = slice(None, 5)
+        self.assertEqual(su.slicelen(sl, asize=4), slowslicelen(sl, asize=4))
+        self.assertEqual(su.slicelen(sl, 4), slowslicelen(sl, 4))
