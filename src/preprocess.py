@@ -225,7 +225,7 @@ def __find_leftright_edges(margindetect, leftpct=0.6, gappct=0.3, debug=False):
             if (nextbase.start - leftmargin.stop) > slu.slicelen(nextbase): break
     # Now do the right hand margin
     area_basesl = sorted([(slu.slicelen(rect[0])*slu.slicelen(rect[1]), rect[1]) for rect in rrects], reverse=True)
-    rarea, rightmargin = 0, slice(0,0)
+    rarea, rightmargin = 0, slice(np.shape(margindetect)[1], np.shape(margindetect)[1])
     while len(area_basesl) > 0:
         rarea, rightmargin = area_basesl.pop(0)
         if debug: print("right now: ", rightmargin)        
