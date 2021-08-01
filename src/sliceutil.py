@@ -105,8 +105,8 @@ def tile_grid( shape, blocksize ):
     """
     result = []
     for row in range(0, shape[0], blocksize[0]):
-        column = [ (slice(row, min(row+blocksize[0], shape[0]), 1), \
-                    slice(col, min(col+blocksize[1], shape[1]), 1)) \
-                    for col in range(0, shape[1], blocksize[1]) ]
-        result.append(column)
+        rowoftiles = [ (slice(row, min(row+blocksize[0], shape[0]), 1), \
+                        slice(col, min(col+blocksize[1], shape[1]), 1)) \
+                       for col in range(0, shape[1], blocksize[1]) ]
+        result.append(rowoftiles)
     return result
